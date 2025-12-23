@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer components{
+    .form-h1{
+        @apply text-white text-4xl font-bold
+    }
+    .form-p1 {
+        @apply text-green-400
+    }
+    .form-input {
+        @apply text-red-500  
+    }
+    .form-animate-in {
+        @apply translate-y-0 opacity-100
+    }
+    .form-animate-out {
+        @apply translate-y-full opacity-0
+    }
+    .form-animate {
+        @apply flex flex-col items-center justify-center absolute inset-0
+    }
+    .form-p2 {
+        @apply text-white
+    }
+    .form-a {
+        @apply text-blue-400
+    }
+
+}
