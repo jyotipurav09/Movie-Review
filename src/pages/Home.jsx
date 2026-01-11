@@ -6,21 +6,22 @@ export default function Home() {
 
     const [selectedCat, setSelectedCat] = useState("All");
 
+
     const filteredMovies = movies.filter((movie) => {
         if (selectedCat === "All") {
             return true
         }
         return movie.category.includes(selectedCat);
     })
-    console.log("Selected Category:", selectedCat);
-    console.log("Filtered Movies:", filteredMovies);
+
+
 
     return (
         <div className="min-h-screen bg-black">
 
             {/* nav area */}
 
-            <nav className="fixed top-0 left-0 right-0 p-4 text-white bg-slate-900">
+            <nav className="fixed top-0 left-0 right-0 z-50 p-4 text-white bg-slate-900">
                 <h1>🎬 ReviewHub</h1>
             </nav>
 
@@ -76,17 +77,15 @@ export default function Home() {
                     <div className="grid grid-cols-5 gap-4">
 
                         {filteredMovies.map((movie) => (
-                            <div className="rounded-lg bg-slate-800 " key={movie.id}>
+                            <div className="rounded-lg bg-slate-800 poster-animate" key={movie.id}>
                                 <img className="object-cover w-full rounded-t-lg h-[400px]"
 
                                     src={movie.poster} alt="" />
-                                <h3 className="p-2 text-white">{movie.name}</h3>
+                                <h3 className="p-2 text-white transition-all duration-300">{movie.name}</h3>
                             </div>
                         ))}
                     </div>
                 </div>
-
-
             </main>
         </div>
     );
