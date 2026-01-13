@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
-import { movies } from "../data/Movies";
+import { movies } from "../data/movies";
 
 import ReviewGauge from "../components/movie/ReviewGauge"
 import { formatGenres } from "../utils/formatters";
+import ReviewForm from "../components/movie/ReviewForm"
 
 export default function MovieDetail() {
     const { id } = useParams();
@@ -18,7 +19,7 @@ export default function MovieDetail() {
         <div className="min-h-screen p-8 text-white bg-black">
             <div className="flex gap-8">
 
-                <div className="w-[800px]">
+                <div className="w-[800px] sticky top-8 self-start">
                     <img src={movie.poster} alt=""
                         className="w-full rounded-lg shadow-2xl"
                     />
@@ -31,6 +32,7 @@ export default function MovieDetail() {
                     <p className="text-lg leading-relaxed text-slate-300">{movie.description}</p>
 
                     <ReviewGauge reviewData={reviewData} />
+                    <ReviewForm movieId={movie.id}/>
                 </div>
             </div>
         </div>
