@@ -1,13 +1,23 @@
 import { useParams } from "react-router-dom";
-import { movies } from "../data/movies";
+import { movies } from "../data/Movies";
 
 import ReviewGauge from "../components/movie/ReviewGauge"
 import { formatGenres } from "../utils/formatters";
 import ReviewForm from "../components/movie/ReviewForm"
 
+import ReviewList from "../components/movie/ReviewList";
+
+import {useState} from 'react'
+
 export default function MovieDetail() {
     const { id } = useParams();
     const movie = movies.find((m) => m.id === parseInt(id));
+
+    const [refreshTrigger, setRefreshTrigger] = useState(0)
+
+    const handleReviewAdded =() => {
+        setRefreshTrigger(prev => prev +1)
+    }
 
     const reviewData = [
         { label: "Skip", value: 16, color: "red" },
@@ -32,7 +42,14 @@ export default function MovieDetail() {
                     <p className="text-lg leading-relaxed text-slate-300">{movie.description}</p>
 
                     <ReviewGauge reviewData={reviewData} />
-                    <ReviewForm movieId={movie.id}/>
+                    <ReviewForm
+                        movieId={movie.id}
+                        onReviewAdded={handleReviewAdded}
+                    />
+                    <ReviewList
+                        movieId={movie.id}
+                        key={refreshTrigger}
+                    />
                 </div>
             </div>
         </div>
