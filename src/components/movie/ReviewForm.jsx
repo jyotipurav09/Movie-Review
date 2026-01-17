@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 
 import { addReview, getReviews } from "../../services/reviewService"
@@ -57,7 +58,7 @@ export default function ReviewForm({ movieId, onReviewAdded }) {
                         <button
                             type="button"
                             onClick={() => setSelectedType("Skip")}
-                            className={`reviewBtn ${selectedType === "Skip" ? "border-red-500 bg-red-600" : ""}`}
+                            className={`ReviewBtn ${selectedType === "Skip" ? "border-red-500 bg-red-600" : ""}`}
                         >
                             Skip
                         </button>
@@ -65,7 +66,7 @@ export default function ReviewForm({ movieId, onReviewAdded }) {
                         <button
                             type="button"
                             onClick={() => setSelectedType("Time Pass")}
-                            className={`reviewBtn ${selectedType === "Time Pass" ? "border-yellow-500 bg-yellow-600" : ""}`}
+                            className={`ReviewBtn ${selectedType === "Time Pass" ? "border-yellow-500 bg-yellow-600" : ""}`}
                         >
                             Time Pass
                         </button>
@@ -73,7 +74,7 @@ export default function ReviewForm({ movieId, onReviewAdded }) {
                         <button
                             type="button"
                             onClick={() => setSelectedType("Go For It")}
-                            className={`reviewBtn ${selectedType === "Go For It" ? "border-green-500 bg-green-600" : ""}`}
+                            className={`ReviewBtn ${selectedType === "Go For It" ? "border-green-500 bg-green-600" : ""}`}
                         >
                             Go For It
                         </button>
