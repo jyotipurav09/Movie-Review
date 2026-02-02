@@ -79,17 +79,23 @@
 
     .Poster-animate:hover {
         transform: translateY(-12px) scale(1.08);
-        box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.6),
-            0 0 0 1px rgba(59, 130, 246, 0.3),
-            inset 0 0 20px rgba(59, 130, 246, 0.1);
+        box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.6),            0 0 0 1px rgba(59, 130, 246, 0.3),            inset 0 0 20px rgba(59, 130, 246, 0.1);
         filter: brightness(1.1);
-    }
+        -webkit-transform: translateY(-12px) scale(1.08);
+        -moz-transform: translateY(-12px) scale(1.08);
+        -ms-transform: translateY(-12px) scale(1.08);
+        -o-transform: translateY(-12px) scale(1.08);
+}
 
     .Poster-animate:hover h3 {
         color: rgb(34, 197, 94);
         transform: translateX(5px);
         font-weight: 600;
-    }
+        -webkit-transform: translateX(5px);
+        -moz-transform: translateX(5px);
+        -ms-transform: translateX(5px);
+        -o-transform: translateX(5px);
+}
 
     .Search {
         @apply px-4 py-2 text-white transition-all duration-200 border rounded-lg bg-slate-800 border-slate-600 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50;
@@ -153,5 +159,12 @@
 
     .Profile-input{
         @apply w-full bg-slate-800 p-3 rounded-lg border border-slate-700 
+    }
+        .Admin-error::before{
+        content: "👑 Admin Dashboard";
+        position: relative;
+    }
+    .Admin-error:hover::before{
+        content: "🚫 Welcome Everyone ...";
     }
 }
