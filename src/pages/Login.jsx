@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { movies } from "../data/Movies";
 import { useForm } from "react-hook-form";
 import { Result } from "postcss";
-import { passwordValidator} from "../validator/passwordValidator";
+import { passwordValidator } from "../validator/passwordValidator";
 import { Link } from "react-router-dom"
 
 import { login } from "../services/authService"
@@ -17,7 +17,7 @@ export default function Login() {
 
     const {
         register: registerLogin,
-        handleSubmit: handleLoginSubmit,
+            handleSubmit: handleLoginSubmit,
         formState: { errors: loginErrors }
     } = useForm();
 
@@ -48,7 +48,9 @@ export default function Login() {
     const [emailSent, setEmailSent] = useState(false);
 
 
-    const onLoginSubmit = (data) => {
+    const onLoginSubmit = async(data) => {
+          console.log("Login clicked "); 
+
         console.log("Login Attempt: ", data)
 
         const result = login(data.email, data.password)

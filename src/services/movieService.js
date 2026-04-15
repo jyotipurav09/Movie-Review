@@ -12,6 +12,36 @@ export const getMovieById = (id) => {
 export const saveMovies = (movies) => {
     localStorage.setItem('movies', JSON.stringify(movies));
 };
+//----------------------------------
+import axios from "axios";
+
+const API_URL = "https://localhost:7015/api";
+export const login = async (email, password) => {
+    try {
+        const response = await axios.post(`${API_URL}/auth/login`, {
+            email,
+            password
+        });
+
+        const data = response.data;
+
+        if (data.token) {
+            localStorage.setItem("token", data.token);
+        }
+
+        localStorage.setItem("currentUser", JSON.stringify(data.user));
+
+        return { success: true, user: data.user };
+    } catch (error) {
+        return { success: false, error: "Invalid email or password" };
+    }
+};
+
+
+
+
+
+
 
 // API
 
